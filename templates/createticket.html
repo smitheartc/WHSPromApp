@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{#    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />#}
+    <script src="/scripts/load_nav.js"></script>
+    <link rel="stylesheet" type="text/css" href="/styles/capture.css?v=1.1">
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css?v=1.2"> <!-- link to CSS -->
+</head>
+<body>
+    <div class="main_container">
+        <div class="header">
+    {#        <div class="logo">#}
+    {#            <img class="logo" src="images/underthestars_logo.png" />#}
+    {#        </div>#}
+    {#        <div class="single_col">#}
+
+    {#            <img class ="Pirate"src="images/pirate_logo.png" width="100%" alt="Pirate Logo" style="float: right; max-width: 250px; margin: 15px;"/>#}
+            <form id="studentData" action="" method="post">
+                {% csrf_token %}
+                <br/>
+                <br/>
+                <label> Shirt Size: </label>
+                {{ form.shirt_size }}
+                <br><br>
+                <label> Do you have a Non-WHS 11/12 date? </label>
+                <input type="checkbox" id="wisd_select" onclick="wisd_sel()">
+                <div id="wisd_input">
+                    <br><br>
+{#                    <p style="max-width: 50%;">If you have a date that goes to Wylie High School, you do not need to put them here.#}
+{#                        You can direct them to this website so they can create their own ticket.#}
+{#                        This is for dates that do not go to WHS. Even if they are WEHS, you should put their email here.</p>#}
+                    <label>Non-WHS Junior/Senior Email:</label>
+                    {{ form.date_email }}
+                </div>
+                <br><br>
+                <input hidden="hidden" name="isWisd" value="False"></input>
+                <button id="formSubmit">Submit</button>
+            </form>
+            <script>
+                {#document.getElementById("id_date_email").value = "none@none.com"#}
+                document.getElementById("wisd_input").style.visibility = "hidden";
+                function wisd_sel(){
+                    check = document.getElementById("wisd_select");
+                    if(check.checked){
+                        document.getElementById("id_date_email").value = ""
+                        document.getElementById("wisd_input").style.visibility = "visible";
+                    }else{
+                        document.getElementById("wisd_input").style.visibility = "hidden";
+                        document.getElementById("id_date_email").value = "none@none.com"
+                    }
+                }
+            </script>
+{#            <button id="formSubmit" onclick="submitForm()">Submit</button>#}
+{#            <script>#}
+{#                function submitForm() {#}
+{#                    document.getElementById("studentData").append('<input type="hidden" name="isWisd" value="False" />');#}
+{#                    document.getElementById("studentData").submit();#}
+{##}
+{#                }#}
+{#            </script>#}
+        </div>
+    </div>
+</body>
+</html>

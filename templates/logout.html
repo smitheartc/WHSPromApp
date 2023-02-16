@@ -1,0 +1,13 @@
+<html>
+<body>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+{% if logged_in %}
+    <script>
+          google.accounts.id.disableAutoSelect();
+    </script>
+{% endif %}
+<script>
+    location.href = "/"
+</script>
+</body>
+</html>

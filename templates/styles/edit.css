@@ -1,0 +1,28 @@
+h2 {
+  font-size: 35px;
+  color: maroon;
+  font-family: "Bubblegum Sans";
+}
+
+body{
+    background-color: rgb(215,215,225);
+}
+
+button{
+  font-family: "Bubblegum Sans";
+}
+
+.header {
+  text-align: center;
+  font-family: "Bubblegum Sans";
+  color: maroon;
+  text-decoration: bold;
+  font-size: 50px;
+  margin-top: 50px;
+  margin: auto;
+  border-width: 4px;
+  border-style: solid;
+  border-color: rgb(70,0,0);
+  border-radius: 10px;
+  background-color: rgb(190, 190, 200);
+}

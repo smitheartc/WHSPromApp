@@ -1,0 +1,125 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{#    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />#}
+    <script src="/scripts/load_nav.js"></script>
+    <link rel="stylesheet" type="text/css" href="/styles/capture.css?v=1.1">
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css?v=1.2"> <!-- link to CSS -->
+</head>
+<body>
+    <div class="main_container">
+        <div class="header">
+    {#        <div class="logo">#}
+    {#            <img class="logo" src="images/underthestars_logo.png" />#}
+    {#        </div>#}
+    {#        <div class="single_col">#}
+
+    {#            <img class ="Pirate"src="images/pirate_logo.png" width="100%" alt="Pirate Logo" style="float: right; max-width: 250px; margin: 15px;"/>#}
+            <form id="wisdStudentData" action="" method="post" enctype="multipart/form-data" style="float:left; margin-left:5%;">
+                {% csrf_token %}
+                <br><br>
+                <img src="data:image/jpeg;base64,{{ student_picture }}" style="height:20%">
+                <br><br>
+                <label>New Picture (Picture will not update if you do not attach a new file): </label>
+                {{ form.picture }}
+                <br><br>
+                <label>First Name: </label>
+                {{ form.first_name }}
+                <br><br>
+                <label>Last Name: </label>
+                {{ form.last_name }}
+                <br><br>
+                <label>Email Address: </label>
+                {{ student.email }}
+                <br><br>
+                <label>Date Email Address: </label>
+                {{ form.date_email }}
+                <br><br>
+                <label> Shirt Size: </label>
+                {{ form.shirt_size }}
+                <br><br>
+                <label> In public school: </label>
+                {{ student.public_school }}
+                <br><br>
+                <label>Is Minor (Auto True for WISD students, as it is irrelevant):</label>
+                {{ student.minor }}
+                <br><br>
+                <label> Approved by school's AP (Auto True for WISD students, as it is irrelevant): </label>
+                {{ form.ap_approved }}
+                <br><br>
+                <label> Approved by WISD AP (Auto True for WISD students, as it is irrelevant): </label>
+                {{ form.wisd_approved }}
+                <br><br>
+                <label id="ap_email_label">School AP Email Address (Blank for WISD): </label>
+                {{ form.ap_email }}
+                <br><br>
+                <label>Has Paid: </label>
+                {{ form.paid }}
+                <br><br>
+                <label>Received Ticket:</label>
+                {{ form.received_ticket }}
+                <br><br>
+                <label>Received Shirt:</label>
+                {{ form.received_shirt }}
+                <br><br>
+                <label>Ticket Num: </label>
+                {{ form.ticket_num }}
+                <br><br>
+<!--                 <input hidden="hidden" name="isWisd" value="False"></input> -->
+                <input type="submit" value="Save">
+                <br><br>
+                <button onclick="return confirm('Are you sure you want to delete?');"><a href="/del/{{student.email}}/">Delete</a></button>
+{#                <a href="/del/{{student.email}}/" onclick="return confirm('Are you sure you want to delete?');">test</a>#}
+            </form>
+            {% if date.first_name %}
+            <div style="float:right; margin-right:5%;">
+                <br><br>
+                <img src="data:image/jpeg;base64,{{ date_picture }}" style="max-width:60%;">
+                <br><br>
+                <label>First Name: </label>
+                {{ date.first_name }}
+                <br><br>
+                <label>Last Name: </label>
+                {{ date.last_name }}
+                <br><br>
+                <label>Email Address: </label>
+                {{ date.email }}
+                <br><br>
+                <label> Shirt Size: </label>
+                {{ date.shirtSize }}
+                <br><br>
+                <label> In public school: </label>
+                {{ date.public_school }}
+                <br><br>
+                <label>Is Minor (Auto True for WISD students, as it is irrelevant):</label>
+                {{ date.minor }}
+                <br><br>
+                <label> Approved by school's AP (Auto True for WISD students, as it is irrelevant): </label>
+                {{ date.ap_approved }}
+                <br><br>
+                <label> Approved by WISD AP (Auto True for WISD students, as it is irrelevant): </label>
+                {{ date.wisd_approved }}
+                <br><br>
+                <label id="ap_email_label">School AP Email Address (Blank for WISD): </label>
+                {{ date.ap_email }}
+                <br><br>
+                <label>Has Paid: </label>
+                {{ date.paid }}
+                <br><br>
+                <label>Received Ticket:</label>
+                {{ date.received_ticket }}
+                <br><br>
+                <label>Received Shirt:</label>
+                {{ date.received_shirt }}
+                <br><br>
+                <label>Ticket Num: </label>
+                {{ date.ticket_num }}
+                <br><br>
+<!--                 <input hidden="hidden" name="isWisd" value="False"></input> -->
+                <p><a href="/student/{{ date.email }}">Edit for {{ date.email }}</a></p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

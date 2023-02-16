@@ -1,0 +1,89 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{#    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />#}
+    <script src="/scripts/load_nav.js"></script>
+    <link rel="stylesheet" type="text/css" href="/styles/capture.css?v=1.1">
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css?v=1.2"> <!-- link to CSS -->
+</head>
+<body>
+    <div class="main_container">
+        <div class="header">
+    {#        <div class="logo">#}
+    {#            <img class="logo" src="images/underthestars_logo.png" />#}
+    {#        </div>#}
+    {#        <div class="single_col">#}
+
+    {#            <img class ="Pirate"src="images/pirate_logo.png" width="100%" alt="Pirate Logo" style="float: right; max-width: 250px; margin: 15px;"/>#}
+            <form id="studentData" action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <br><br>
+                <label>First Name: </label>
+                {{ form.first_name }}
+                <br><br>
+                <label>Last Name: </label>
+                {{ form.last_name }}
+                <br><br>
+                <label>Email Address: </label>
+                {{ form.email }}
+                <br><br>
+                <label> Shirt Size: </label>
+                {{ form.shirt_size }}
+                <br><br>
+                <label> Are you in school and not homeschooled? </label>
+                {{ form.public_school }}
+                <br><br>
+                <div id="check_minor">
+                    <label>Are you eighteen years old?</label>
+                    {{ form.not_minor }}
+                    <br><br>
+                </div>
+                <div id="ap_email_div">
+                    <label id="ap_email_label">School AP Email Address (Needed to verify permission to go)</label>
+                    {{ form.permission_email }}
+                    <br><br>
+                </div>
+                <label>Picture of entire ID (must be .png or .jpg or .jpeg): </label>
+                {{ form.picture }}
+                <br><br>
+                <label>By checking this, you confirm that you either are or are inbetween the ages of 9th grade and 21 years old, and you agree that all of the information above is correct and true: </label>
+                {{ form.tos }}
+                <br><br>
+<!--                 <input hidden="hidden" name="isWisd" value="False"></input> -->
+                <input type="submit" value="Submit">
+            </form>
+            <script>
+//                 document.getElementById("id_permission_email").value = "none@none.com";
+                function run_checks(){
+                    let public = document.getElementById("id_public_school");
+                    if(public.checked){
+                        document.getElementById("check_minor").style.visibility = "hidden";
+                        document.getElementById("id_permission_email").style.visibility = "visible";
+                        document.getElementById("ap_email_label").innerHTML = "School AP Email Address (Needed to verify permission to go)";
+                        document.getElementById("ap_email_label").style.visibility = "visible";
+                        document.getElementById("id_permission_email").value = "";
+                        document.getElementById("id_permission_email").style.visibility = "visible";
+                    }else{
+                        document.getElementById("check_minor").style.visibility = "visible";
+                        let is_18 = document.getElementById("id_not_minor");
+                        if(is_18.checked){
+                            document.getElementById("ap_email_label").style.visibility = "hidden";
+                            document.getElementById("id_permission_email").value = "none@none.com";
+                            document.getElementById("id_permission_email").style.visibility = "hidden";
+                        }else{
+                            document.getElementById("ap_email_label").style.visibility = "visible";
+                            document.getElementById("id_permission_email").value = "";
+                            document.getElementById("ap_email_label").innerHTML = "Parent Email Address (Needed to verify permission to go)";
+                            document.getElementById("id_permission_email").style.visibility = "visible";
+                        }
+                    }
+//                     setTimeout(pub_sel, 300);
+                }
+                document.getElementById("id_public_school").setAttribute( "onClick", "javascript: run_checks();" );
+                document.getElementById("id_not_minor").setAttribute( "onClick", "javascript: run_checks();" );
+                run_checks();
+            </script>
+        </div>
+    </div>
+</body>
+</html>

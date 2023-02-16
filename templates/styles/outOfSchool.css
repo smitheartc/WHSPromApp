@@ -1,0 +1,11 @@
+h2 {
+  font-size: 35px;
+  color: maroon;
+  font-family: "Bubblegum Sans";
+}
+body{
+    background-color: rgb(215,215,225);
+}
+button{
+  font-family: "Bubblegum Sans";
+}

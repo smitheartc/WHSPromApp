@@ -1,0 +1,14 @@
+<div class="topnav">
+    <a href="/"><div class="nav_button">Home</div></a>
+    <a href="/createticket"><div class="nav_button">Get Ticket</div></a>
+{% if is_admin %}
+    <a href="/database"><div class="nav_button">Search Database</div></a>
+{% endif %}
+{% if logged_in %}
+    <a href="/logout"><div class="nav_button">Logout</div></a>
+    <p style="float:right;color:white;margin-left:20px;">Logged In As: {{ email }}</p>
+{% else %}
+    <a href="/login"><div class="nav_button">Login</div></a>
+{% endif %}
+
+</div>
