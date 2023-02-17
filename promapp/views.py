@@ -110,13 +110,18 @@ admins = ["cynthia.patel@apps.wylieisd.net",
           "meggan.narvaez@apps.wylieisd.net",
           "barbara.radford@apps.wylieisd.net",
           "susan.fajardo@apps.wylieisd.net",
-          "michelle.rodges@apps.wylieisd.net",
-          "robert.gawedzinski@apps.wylieisd.net",
+          "amanda.lannan@apps.wylieisd.net",
+          "leslie.coble@apps.wylieisd.net",
           "michael.mason@apps.wylieisd.net",
           "jamie.busby@apps.wylieisd.net",
           "leny.philipose@apps.wylieisd.net",
           "michelle.bellamy@apps.wylieisd.net",
-          "jonathan.campoverde@apps.wylieisd.net"]
+          "jonathan.campoverde@apps.wylieisd.net",
+          "tj.fields@apps.wylieisd.net",
+          "chad.ghormley@apps.wylieisd.net",
+          "tony.gilliam@apps.wylieisd.net",
+          "katherine.morales@apps.wylieisd.net",
+          "tammie.sullivan@apps.wylieisd.net"]
 
 
 def is_admin(request):  # checks if the user has admin access from the list of admins(teachers and devs)
@@ -953,7 +958,7 @@ def student_view(request, student):
                 with open('/var/www/html/templates/emails/wisdapproved.html') as f:
                     for e in f:
                         template = template + str(e) + "\n"
-                payment_link = "https://wylie-isd.revtrak.net/high-schools-8/wylie-hs-group/#/v/wylie-hs-2022-prom"
+                payment_link = "https://wylie-isd.revtrak.net/high-schools-8/wylie-hs-group/#/v/whs-2023-junior-senior-prom-ticket"
                 today = datething.today()
                 if today.month == 5:
                     if today.day > 8:
@@ -1119,7 +1124,7 @@ def wylieapp(request, student_email, redirect_thing):
                 with open('/var/www/html/templates/emails/wisdapproved.html') as f:
                     for e in f:
                         template = template + str(e) + "\n"
-                payment_link = "https://wylie-isd.revtrak.net/high-schools-8/wylie-hs-group/#/v/wylie-hs-2022-prom"
+                payment_link = "https://wylie-isd.revtrak.net/high-schools-8/wylie-hs-group/#/v/whs-2023-junior-senior-prom-ticket"
                 today = datething.today()
                 if today.month == 5:
                     if today.day > 8:
