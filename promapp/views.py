@@ -412,7 +412,7 @@ def show_mysql_data(request):  # just styling the sql database to display the da
 
 
 def send(to, subject, message, messagehtml):  # to = (name, email) #style this email still in progress
-    mailjet = Client(auth=('505731f6381478512f91dc2594e35f17', '286a704be18028fdcd3a743840cb0d28'), version='v3.1')
+    mailjet = Client(auth=('inserthere', 'inserthere'), version='v3.1')
     # splitting up the email into parts
     data = {
         'Messages': [
